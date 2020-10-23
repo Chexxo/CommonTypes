@@ -1,3 +1,3 @@
-import { DistinguishedName } from "./DistinguishedName";
+import DistinguishedName from "./DistinguishedName";
 
-export class Subject extends DistinguishedName {}
+export default class Subject extends DistinguishedName {}
