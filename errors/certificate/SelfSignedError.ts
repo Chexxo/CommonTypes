@@ -8,4 +8,5 @@ export default class SelfSignedError extends CertificateError {
   readonly code: number = 1;
   readonly message: string =
     "The certificate has not been signed by a trusted entity.";
+  readonly publicMessage: string = this.message;
 }

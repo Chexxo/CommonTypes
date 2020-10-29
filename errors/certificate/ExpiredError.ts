@@ -7,4 +7,5 @@ export default class ExpiredError extends CertificateError {
   readonly name: string = "Certificate expired exception";
   readonly code: number = 2;
   readonly message: string = "The Certificate is not valid at this time.";
+  readonly publicMessage: string = this.message;
 }

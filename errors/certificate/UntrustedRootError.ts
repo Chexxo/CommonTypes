@@ -8,4 +8,5 @@ export default class UntrustedRootError extends CertificateError {
   readonly code: number = 1;
   readonly message: string =
     "The certificate has an untrusted link in its chain.";
+  readonly publicMessage: string = this.message;
 }
