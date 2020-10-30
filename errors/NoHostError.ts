@@ -3,7 +3,7 @@
  */
 export default class NoHostError implements Error {
   readonly name: string = "Host not found exception";
-  readonly code: number = 6;
+  readonly code: number = 300;
   readonly message: string = "No host could be found with the domain provided.";
   readonly publicMessage: string = this.message;
 

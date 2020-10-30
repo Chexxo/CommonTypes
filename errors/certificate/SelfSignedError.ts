@@ -5,8 +5,7 @@ import CertificateError from "./CertificateError";
  */
 export default class SelfSignedError extends CertificateError {
   readonly name: string = "Certificate self signed exception";
-  readonly code: number = 1;
+  readonly code: number = 103;
   readonly message: string =
     "The certificate has not been signed by a trusted entity.";
-  readonly publicMessage: string = this.message;
 }

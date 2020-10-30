@@ -3,10 +3,9 @@
  */
 export default class InvalidResponseError implements Error {
   readonly name: string = "Invalid response exception";
-  readonly code: number = 5;
+  readonly code: number = 200;
   readonly message: string =
     "Server responded with unsupported statuscode. Status:" + this.statusCode;
-  readonly publicMessage: string = this.message;
   /**
    * @param statusCode The status code the remote host returned.
    * @param stack Can optionally include the stacktrace of the undelying error.
