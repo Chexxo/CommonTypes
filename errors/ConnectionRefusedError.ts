@@ -1,7 +1,7 @@
 import CodedError from "./CodedError";
 
 /**
- * Indicates that the other party refused to open an tls connection.
+ * Indicates that the other party refused to open a tls connection.
  */
 export default class ConnectionRefusedError implements CodedError {
   readonly name: string = "Connection refues Error";

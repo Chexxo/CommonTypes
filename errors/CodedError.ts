@@ -1,6 +1,6 @@
 /**
  * Error which contains a code. Is parent of all
- * errors thrown by the chexxo server api.
+ * errors thrown by the Chexxo server API.
  */
 export default abstract class CodedError extends Error {
   /**
@@ -9,7 +9,7 @@ export default abstract class CodedError extends Error {
   readonly code: number = 0;
   /**
    * The public message of the error which will be
-   * exposed by the chexxo server api.
+   * exposed by the Chexxo server API.
    */
   readonly publicMessage: string = this.message;
 }

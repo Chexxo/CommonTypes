@@ -1,7 +1,7 @@
 import CodedError from "./CodedError";
 
 /**
- * Defines a not handled error of the chexxo server api.
+ * Defines a unhandled error of the Chexxo server API.
  */
 export default class ServerError extends CodedError {
   readonly name: string;

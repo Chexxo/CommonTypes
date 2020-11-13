@@ -1,6 +1,6 @@
 /**
- * Represents an error reported by the chexxo
- * server api.
+ * Represents an error reported by the Chexxo
+ * server API.
  */
 export default class APIResponseError {
   constructor(
