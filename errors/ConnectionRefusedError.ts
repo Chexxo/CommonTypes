@@ -1,16 +1,17 @@
+import CodedError from "./CodedError";
+
 /**
- * If no host was found for the requested domain this error gets thrown.
+ * Indicates that the other party refused to open an tls connection.
  */
-export default class ConnectionRefusedError extends Error {
+export default class ConnectionRefusedError implements CodedError {
   readonly name: string = "Connection refues Error";
-  readonly code: number = 501;
   readonly message: string = "The host refused to open a connection.";
+
+  readonly code: number = 501;
   readonly publicMessage: string = this.message;
 
   /**
    * @param stack Can optionally include the stacktrace of the undelying error.
    */
-  constructor(readonly stack?: string) {
-    super();
-  }
+  constructor(readonly stack?: string) {}
 }

@@ -1,3 +1,18 @@
+/**
+ * Represents an error reported by the chexxo
+ * server api.
+ */
 export default class APIResponseError {
-  constructor(readonly code: number, readonly publicMessage: string) {}
+  constructor(
+    /**
+     * The code of the {@link CodedError}
+     * which occured.
+     */
+    readonly code: number,
+    /**
+     * The description of the error which
+     * occured.
+     */
+    readonly publicMessage: string
+  ) {}
 }
