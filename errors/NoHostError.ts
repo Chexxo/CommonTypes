@@ -5,8 +5,9 @@ import CodedError from "./CodedError";
  */
 export default class NoHostError extends CodedError {
   readonly name: string = "Host not found exception";
-  readonly code: number = 503;
   readonly message: string = "No host could be found with the domain provided.";
+
+  readonly code: number = 503;
   readonly publicMessage: string = this.message;
 
   /**

@@ -5,9 +5,10 @@ import CodedError from "./CodedError";
  */
 export default class InvalidResponseError extends CodedError {
   readonly name: string = "Invalid response exception";
-  readonly code: number = 502;
   readonly message: string =
     "Server responded with unsupported statuscode. Status:" + this.statusCode;
+
+  readonly code: number = 502;
   readonly publicMessage: string = this.message;
 
   /**

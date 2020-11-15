@@ -1,3 +1,11 @@
+/**
+ * Encapsulates the PEM-formatted certificate of a website.
+ */
 export default class RawCertificate {
-  constructor(readonly pem: string) {}
+  constructor(
+    /**
+     * PEM-formatted representation of the certificate.
+     */
+    readonly pem: string
+  ) {}
 }
