@@ -13,5 +13,5 @@ export default class ConnectionRefusedError implements CodedError {
   /**
    * @param stack Can optionally include the stacktrace of the undelying error.
    */
-  constructor(readonly stack?: string) {}
+  constructor(readonly uuid: string, readonly stack?: string) {}
 }
