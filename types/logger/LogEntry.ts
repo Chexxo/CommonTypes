@@ -1,4 +1,4 @@
-import { LogLevel } from "../../../helpers/Logger";
+import { LogLevel } from "../../logger/Logger";
 import { CodedError } from "../errors/CodedError";
 
 export class LogEntry {
