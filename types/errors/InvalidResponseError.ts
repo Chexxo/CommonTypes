@@ -1,9 +1,9 @@
-import CodedError from "./CodedError";
+import { CodedError } from "./CodedError";
 
 /**
  * If the host responds with an unsupported http-code this error is thrown.
  */
-export default class InvalidResponseError extends CodedError {
+export class InvalidResponseError extends CodedError {
   readonly name: string = "Invalid response exception";
   readonly message: string =
     "Server responded with unsupported statuscode. Status:" + this.statusCode;
@@ -13,12 +13,12 @@ export default class InvalidResponseError extends CodedError {
 
   /**
    * @param statusCode The status code the remote host returned.
-   * @param stack Can optionally include the stacktrace of the undelying error.
+   * @param trace Can optionally include the stacktrace of the undelying error.
    */
   constructor(
     readonly uuid: string,
     readonly statusCode: number,
-    readonly stack?: string
+    readonly trace?: string
   ) {
     super();
   }

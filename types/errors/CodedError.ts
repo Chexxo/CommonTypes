@@ -2,7 +2,7 @@
  * Error which contains a code. Is parent of all
  * errors thrown by the Chexxo server API.
  */
-export default abstract class CodedError extends Error {
+export abstract class CodedError extends Error {
   /**
    * The code of the error.
    */

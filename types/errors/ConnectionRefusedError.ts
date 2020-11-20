@@ -1,9 +1,9 @@
-import CodedError from "./CodedError";
+import { CodedError } from "./CodedError";
 
 /**
  * Indicates that the other party refused to open a tls connection.
  */
-export default class ConnectionRefusedError implements CodedError {
+export class ConnectionRefusedError implements CodedError {
   readonly name: string = "Connection refues Error";
   readonly message: string = "The host refused to open a connection.";
 
@@ -11,7 +11,7 @@ export default class ConnectionRefusedError implements CodedError {
   readonly publicMessage: string = this.message;
 
   /**
-   * @param stack Can optionally include the stacktrace of the undelying error.
+   * @param trace Can optionally include the stacktrace of the undelying error.
    */
-  constructor(readonly uuid: string, readonly stack?: string) {}
+  constructor(readonly uuid: string, readonly trace?: string) {}
 }

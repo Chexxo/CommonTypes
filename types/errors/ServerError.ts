@@ -1,12 +1,12 @@
-import CodedError from "./CodedError";
+import { CodedError } from "./CodedError";
 
 /**
  * Defines a unhandled error of the Chexxo server API.
  */
-export default class ServerError extends CodedError {
+export class ServerError extends CodedError {
   readonly name: string;
   readonly message: string;
-  readonly stack?: string;
+  readonly trace?: string;
 
   readonly code = 500;
   readonly publicMessage = "An internal server error occured.";
@@ -16,8 +16,9 @@ export default class ServerError extends CodedError {
    */
   constructor(readonly uuid: string, error: Error) {
     super();
+    super.stack = error.stack;
     this.name = error.name;
     this.message = error.message;
-    this.stack = error.stack;
+    this.trace = error.stack;
   }
 }
