@@ -111,18 +111,10 @@ export class Logger {
 
     let errorString = "";
     if (logEntry.error) {
-      errorString =
-        `    Error: ${logEntry.error.name}[${logEntry.error.code}]\n` +
-        `        Message: ${logEntry.error.message}\n`;
-      if (logEntry.error.stack) {
-        errorString += `        Trace:   ${logEntry.error.stack.replace(
-          /\n/g,
-          "\n                 "
-        )}`;
-      }
+      errorString = Logger.formatError(logEntry.error);
     }
 
-    const humanReadable =
+    let humanReadable =
       "(" +
       Logger.formatTimestamp(logEntry.millisecTimestamp) +
       ")" +
@@ -130,10 +122,31 @@ export class Logger {
       "[" +
       Logger.logLevelToString(logEntry.logLevel) +
       "] " +
-      logEntry.message +
-      "\n" +
-      errorString;
+      logEntry.message;
 
+    if (errorString !== "") {
+      humanReadable = humanReadable + "\n" + errorString;
+    }
     return humanReadable;
+  }
+
+  /**
+   * Converts a given {@link CodedError} into a human readable format.
+   *
+   * @param error The error to be converted.
+   * @returns A human readable error.
+   */
+  private static formatError(error: CodedError): string {
+    let errorString =
+      `    Error: ${error.name}[${error.code}]\n` +
+      `        Message: ${error.message}`;
+
+    if (error.stack) {
+      errorString +=
+        "\n" +
+        `        Trace:   ${error.stack.replace(/\n/g, "\n                 ")}`;
+    }
+
+    return errorString;
   }
 }
