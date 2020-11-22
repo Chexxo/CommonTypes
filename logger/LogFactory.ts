@@ -2,6 +2,9 @@ import { CodedError } from "../types/errors/CodedError";
 import { LogEntry } from "../types/logger/LogEntry";
 import { LogLevel } from "./Logger";
 
+/**
+ * Provides static functions regarding log formatting.
+ */
 export abstract class LogFactory {
   /**
    * Converts the given log level into it's string representation.
