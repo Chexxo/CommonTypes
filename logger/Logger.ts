@@ -66,11 +66,13 @@ export class Logger {
     if (logEntry.error) {
       errorString =
         `    Error: ${logEntry.error.name}[${logEntry.error.code}]\n` +
-        `        Message: ${logEntry.error.message}\n` +
-        `        Trace:   ${logEntry.error.stack.replace(
+        `        Message: ${logEntry.error.message}\n`;
+      if (logEntry.error.stack) {
+        errorString += `        Trace:   ${logEntry.error.stack.replace(
           /\n/g,
           "\n                 "
         )}`;
+      }
     }
 
     const humanReadable =
