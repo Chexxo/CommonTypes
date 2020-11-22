@@ -141,10 +141,10 @@ export class Logger {
       `    Error: ${error.name}[${error.code}]\n` +
       `        Message: ${error.message}`;
 
-    if (error.stack) {
+    if (error.trace) {
       errorString +=
         "\n" +
-        `        Trace:   ${error.stack.replace(/\n/g, "\n                 ")}`;
+        `        Trace:   ${error.trace.replace(/\n/g, "\n                 ")}`;
     }
 
     return errorString;

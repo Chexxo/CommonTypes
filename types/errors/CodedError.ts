@@ -15,6 +15,11 @@ export abstract class CodedError extends Error {
   readonly uuid: string = "";
 
   /**
+   * A field in which to save the original errors stack.
+   */
+  readonly trace?: string;
+
+  /**
    * The public message of the error which will be
    * exposed by the Chexxo server API.
    */
