@@ -33,33 +33,33 @@ test("Calls persistence manager", () => {
 
 test("Formats timestamp correctly", () => {
   const result = Logger.formatTimestamp(fifthOfOctober);
-  expect(result).toBe("2020-10-05 02:00:00 +000");
+  expect(result).toMatch(/2020-10-05/);
 });
 
 test("Formats info log entry correctly", () => {
   const result = Logger.formatLogEntry(logEntryInfo);
-  expect(result).toBe("(2020-10-05 02:00:00 +000)[info] Hello Info!\n");
+  expect(result).toMatch(/\)\[info\] Hello Info!/);
 });
 
 test("Formats warning log entry correctly", () => {
   const result = Logger.formatLogEntry(logEntryWarning);
-  expect(result).toBe("(2020-10-05 02:00:00 +000)[warn] Hello Warning!\n");
+  expect(result).toMatch(/\)\[warn\] Hello Warning!/);
 });
 
 test("Formats error log entry correctly", () => {
   const result = Logger.formatLogEntry(logEntryError);
-  expect(result).toBe("(2020-10-05 02:00:00 +000)[err] Hello Error!\n");
+  expect(result).toMatch(/\)\[err\] Hello Error!/);
 });
 
 test("Formats unknown log entry correctly", () => {
   const logEntryUnknown = new LogEntry(28, fifthOfOctober, "Hello Unknown!");
   const result = Logger.formatLogEntry(logEntryUnknown);
-  expect(result).toBe("(2020-10-05 02:00:00 +000)[unknown] Hello Unknown!\n");
+  expect(result).toMatch(/\)\[unknown\] Hello Unknown!/);
 });
 
 test("Includes uuid correctly", () => {
   const result = Logger.formatLogEntry(logEntryError, "abc123");
-  expect(result).toBe("(2020-10-05 02:00:00 +000)[abc123][err] Hello Error!\n");
+  expect(result).toMatch(/\)\[abc123\]\[err\] Hello Error!/);
 });
 
 test("Includes error correctly", () => {
