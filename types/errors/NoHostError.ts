@@ -1,9 +1,9 @@
-import CodedError from "./CodedError";
+import { CodedError } from "./CodedError";
 
 /**
  * If no host was found for the requested domain this error gets thrown.
  */
-export default class NoHostError extends CodedError {
+export class NoHostError extends CodedError {
   readonly name: string = "Host not found exception";
   readonly message: string = "No host could be found with the domain provided.";
 
@@ -11,9 +11,10 @@ export default class NoHostError extends CodedError {
   readonly publicMessage: string = this.message;
 
   /**
-   * @param stack Can optionally include the stacktrace of the undelying error.
+   * @param uuid The uuid that identifies this particular error.
+   * @param trace Can optionally include the stacktrace of the undelying error.
    */
-  constructor(readonly stack?: string) {
+  constructor(readonly uuid: string, readonly trace?: string) {
     super();
   }
 }

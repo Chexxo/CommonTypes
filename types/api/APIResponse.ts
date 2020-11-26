@@ -1,10 +1,10 @@
-import APIResponseBody from "./APIResponseBody";
+import { APIResponseBody } from "./APIResponseBody";
 
 /**
  * Represents an APIResponse which is returned
  * from the Chexxo server API.
  */
-export default class APIResponse {
+export class APIResponse {
   constructor(
     /**
      * The HTTP-StatusCode of the response.
