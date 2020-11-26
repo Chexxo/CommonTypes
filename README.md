@@ -1,3 +1,3 @@
-# CommonTypes
+# Shared
 
-Repository for Typescript definitions used in both Server and Extension
+Repository for Typescript code used in both Server and Extension
