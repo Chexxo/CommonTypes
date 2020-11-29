@@ -1,3 +1,4 @@
+import { UUIDFactory } from "../../helpers/UUIDFactory";
 import { Logger, LogLevel } from "./Logger";
 import { LoggerPersistenceManager } from "./LoggerPersistenceManager";
 
@@ -11,6 +12,6 @@ beforeEach(() => {
 });
 
 test("Calls persistence manager", () => {
-  logger.log(LogLevel.INFO, "Hello Info!");
+  logger.log(UUIDFactory.uuidv4(), LogLevel.INFO, "Hello Info!");
   expect(persistent.save).toHaveBeenCalled();
 });

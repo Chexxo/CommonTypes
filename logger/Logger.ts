@@ -34,13 +34,19 @@ export class Logger {
   /**
    * Creates and persists a {@link LogEntry}.
    *
+   * @param uuid The uuid of the request which lead to this entry.
    * @param logLevel The log level of the entry to be created.
    * @param message The message the entry to be created should contain.
    * @param error The error which triggered this log entry.
    */
-  public log(logLevel: LogLevel, message: string, error?: CodedError): void {
+  public log(
+    uuid: string,
+    logLevel: LogLevel,
+    message: string,
+    error?: CodedError
+  ): void {
     const millisecTimestamp = Date.now();
     const logEntry = new LogEntry(logLevel, millisecTimestamp, message, error);
-    this.persistence.save(logEntry);
+    this.persistence.save(uuid, logEntry);
   }
 }

@@ -14,7 +14,7 @@ export class ServerError extends CodedError {
   /**
    * @param error The error which lead to this exception.
    */
-  constructor(readonly uuid: string, error: Error) {
+  constructor(error: Error) {
     super();
     super.stack = error.stack;
     this.name = error.name;

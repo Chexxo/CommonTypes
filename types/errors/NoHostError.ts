@@ -13,7 +13,7 @@ export class NoHostError extends CodedError {
   /**
    * @param trace Can optionally include the stacktrace of the undelying error.
    */
-  constructor(readonly uuid: string, readonly trace?: string) {
+  constructor(readonly trace?: string) {
     super();
   }
 }

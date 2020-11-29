@@ -5,12 +5,6 @@
 export class APIResponseError {
   constructor(
     /**
-     * The uuid of the {@link CodedError}
-     * which occured.
-     */
-    readonly uuid: string,
-
-    /**
      * The code of the {@link CodedError}
      * which occured.
      */

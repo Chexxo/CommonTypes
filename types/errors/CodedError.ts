@@ -9,12 +9,6 @@ export abstract class CodedError extends Error {
   readonly code: number = 0;
 
   /**
-   * The UUID of the error. If a ServerProvider is used the
-   * uuid will be the same.
-   */
-  readonly uuid: string = "";
-
-  /**
    * A field in which to save the original errors stack.
    */
   readonly trace?: string;

@@ -15,11 +15,7 @@ export class InvalidResponseError extends CodedError {
    * @param statusCode The status code the remote host returned.
    * @param trace Can optionally include the stacktrace of the undelying error.
    */
-  constructor(
-    readonly uuid: string,
-    readonly statusCode: number,
-    readonly trace?: string
-  ) {
+  constructor(readonly statusCode: number, readonly trace?: string) {
     super();
   }
 }
