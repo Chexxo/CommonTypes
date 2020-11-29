@@ -64,7 +64,7 @@ export abstract class LogFactory {
    * @param logEntry The log entry to be converted.
    * @param uuid The uuid of the request which lead to this entry.
    * @param small If set to true the generated log entry does not
-   * contain the prefix including time and uuid.
+   * contain the prefix including time, loglevel and uuid.
    * @returns A human readable log entry.
    */
   public static formatLogEntry(
@@ -83,13 +83,12 @@ export abstract class LogFactory {
       ")" +
       "[" +
       uuid +
-      "]";
-
-    let main =
+      "]" +
       "[" +
       LogFactory.logLevelToString(logEntry.logLevel) +
-      "] " +
-      logEntry.message;
+      "] ";
+
+    let main = logEntry.message;
 
     if (errorString !== "") {
       main = main + "\n" + errorString;
