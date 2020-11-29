@@ -63,30 +63,42 @@ export abstract class LogFactory {
    *
    * @param logEntry The log entry to be converted.
    * @param uuid The uuid of the request which lead to this entry.
+   * @param small If set to true the generated log entry does not
+   * contain the prefix including time and uuid.
    * @returns A human readable log entry.
    */
-  public static formatLogEntry(uuid: string, logEntry: LogEntry): string {
+  public static formatLogEntry(
+    uuid: string,
+    logEntry: LogEntry,
+    small?: boolean
+  ): string {
     let errorString = "";
     if (logEntry.error) {
       errorString = LogFactory.formatError(logEntry.error);
     }
 
-    let humanReadable =
+    const prefix =
       "(" +
       LogFactory.formatTimestamp(logEntry.millisecTimestamp) +
       ")" +
       "[" +
       uuid +
-      "]" +
+      "]";
+
+    let main =
       "[" +
       LogFactory.logLevelToString(logEntry.logLevel) +
       "] " +
       logEntry.message;
 
     if (errorString !== "") {
-      humanReadable = humanReadable + "\n" + errorString;
+      main = main + "\n" + errorString;
     }
-    return humanReadable;
+
+    if (small) {
+      return main;
+    }
+    return prefix + main;
   }
 
   /**
