@@ -29,7 +29,7 @@ export class Logger {
    * @param persistence The {@link LoggerPersistenceManager} which will
    * be used to persist the log messages handled by this logger.
    */
-  constructor(readonly persistence: LoggerPersistenceManager) {}
+  constructor(protected persistence: LoggerPersistenceManager) {}
 
   /**
    * Creates and persists a {@link LogEntry}.
@@ -46,7 +46,13 @@ export class Logger {
     error?: CodedError
   ): void {
     const millisecTimestamp = Date.now();
-    const logEntry = new LogEntry(logLevel, millisecTimestamp, message, error);
-    this.persistence.save(uuid, logEntry);
+    const logEntry = new LogEntry(
+      uuid,
+      logLevel,
+      millisecTimestamp,
+      message,
+      error
+    );
+    this.persistence.save(logEntry);
   }
 }

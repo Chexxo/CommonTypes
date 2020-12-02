@@ -62,16 +62,11 @@ export abstract class LogFactory {
    * Converts a given {@link LogEntry} into a human readable format.
    *
    * @param logEntry The log entry to be converted.
-   * @param uuid The uuid of the request which lead to this entry.
    * @param small If set to true the generated log entry does not
    * contain the prefix including time, loglevel and uuid.
    * @returns A human readable log entry.
    */
-  public static formatLogEntry(
-    uuid: string,
-    logEntry: LogEntry,
-    small?: boolean
-  ): string {
+  public static formatLogEntry(logEntry: LogEntry, small?: boolean): string {
     let errorString = "";
     if (logEntry.error) {
       errorString = LogFactory.formatError(logEntry.error);
@@ -82,7 +77,7 @@ export abstract class LogFactory {
       LogFactory.formatTimestamp(logEntry.millisecTimestamp) +
       ")" +
       "[" +
-      uuid +
+      logEntry.requestUuid +
       "]" +
       "[" +
       LogFactory.logLevelToString(logEntry.logLevel) +
