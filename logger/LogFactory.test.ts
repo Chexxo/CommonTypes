@@ -1,4 +1,3 @@
-import { UUIDFactory } from "../../helpers/UUIDFactory";
 import { ConnectionRefusedError } from "../types/errors/ConnectionRefusedError";
 import { NoHostError } from "../types/errors/NoHostError";
 import { LogEntry } from "../types/logger/LogEntry";
@@ -22,7 +21,7 @@ const logEntryError = new LogEntry(
 let requestUuid: string;
 beforeEach(() => {
   jest.resetAllMocks();
-  requestUuid = UUIDFactory.uuidv4();
+  requestUuid = "abc123";
 });
 
 test("Formats timestamp correctly", () => {
