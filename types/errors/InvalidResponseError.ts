@@ -12,6 +12,7 @@ export class InvalidResponseError extends CodedError {
   readonly publicMessage: string = this.message;
 
   /**
+   * @param uuid The uuid that identifies this particular error.
    * @param statusCode The status code the remote host returned.
    * @param trace Can optionally include the stacktrace of the undelying error.
    */

@@ -12,6 +12,7 @@ export class ServerError extends CodedError {
   readonly publicMessage = "An internal server error occured.";
 
   /**
+   * @param uuid The uuid that identifies this particular error.
    * @param error The error which lead to this exception.
    */
   constructor(error?: Error) {
