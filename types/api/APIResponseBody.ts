@@ -7,6 +7,11 @@ import { APIResponseError } from "./APIResponseError";
 export class APIResponseBody {
   constructor(
     /**
+     * The uuid of the request which lead
+     * to this response.
+     */
+    readonly requestUuid: string,
+    /**
      * Contains the error if one occured. Else
      * this field contains `null`.
      */

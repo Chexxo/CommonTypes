@@ -7,6 +7,7 @@ import { CodedError } from "../errors/CodedError";
  */
 export class LogEntry {
   constructor(
+    readonly requestUuid: string,
     readonly logLevel: LogLevel,
     readonly millisecTimestamp: number,
     readonly message: string,

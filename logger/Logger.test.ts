@@ -11,6 +11,6 @@ beforeEach(() => {
 });
 
 test("Calls persistence manager", () => {
-  logger.log(LogLevel.INFO, "Hello Info!");
+  logger.log("abc123", LogLevel.INFO, "Hello Info!");
   expect(persistent.save).toHaveBeenCalled();
 });
