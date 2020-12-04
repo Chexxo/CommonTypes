@@ -72,16 +72,11 @@ export abstract class LogFactory {
       errorString = LogFactory.formatError(logEntry.error);
     }
 
-    const prefix =
-      "(" +
-      LogFactory.formatTimestamp(logEntry.millisecTimestamp) +
-      ")" +
-      "[" +
-      logEntry.requestUuid +
-      "]" +
-      "[" +
-      LogFactory.logLevelToString(logEntry.logLevel) +
-      "] ";
+    const prefix = `(${LogFactory.formatTimestamp(
+      logEntry.millisecTimestamp
+    )})[${logEntry.requestUuid}][${LogFactory.logLevelToString(
+      logEntry.logLevel
+    )}]`;
 
     let main = logEntry.message;
 
