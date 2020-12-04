@@ -76,7 +76,7 @@ export abstract class LogFactory {
       logEntry.millisecTimestamp
     )})[${logEntry.requestUuid}][${LogFactory.logLevelToString(
       logEntry.logLevel
-    )}]`;
+    )}] `;
 
     let main = logEntry.message;
 
