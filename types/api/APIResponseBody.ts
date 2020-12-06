@@ -15,12 +15,12 @@ export class APIResponseBody {
      * Contains the error if one occured. Else
      * this field contains `null`.
      */
-    readonly error: APIResponseError,
+    readonly error: APIResponseError | null,
     /**
      * Contains the PEM-formatted certificate
      * if no error occured. Else this field
      * contains `null`.
      */
-    readonly certificate: string
+    readonly certificate: string | null
   ) {}
 }
