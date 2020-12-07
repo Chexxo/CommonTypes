@@ -62,6 +62,11 @@ test("Formats unknown log entry correctly", () => {
   expect(result).toMatch(/\]\[unknown\] Hello Unknown!/);
 });
 
+test("Formats small log entry correctly", () => {
+  const result = LogFactory.formatLogEntry(logEntryError, true);
+  expect(result).toBe("Hello Error!");
+});
+
 test("Includes uuid correctly", () => {
   const result = LogFactory.formatLogEntry(logEntryError);
   expect(result).toMatch(/\)\[abc123\]\[err\] Hello Error!/);
